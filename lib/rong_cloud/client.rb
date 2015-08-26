@@ -3,7 +3,7 @@ require 'json'
 require 'securerandom'
 
 module RongCloud
-  class HTTPClient
+  class Client
     DEFAULT_HOST = 'https://api.cn.rong.io'.freeze
 
     def initialize(host:DEFAULT_HOST, app_key:, app_secret:)

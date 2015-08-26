@@ -23,7 +23,7 @@ Or install it yourself as:
 ### Sample
 
 ```ruby
-client = RongCloud::HTTPClient.new(
+client = RongCloud::Client.new(
   app_key: 'uwd1c0sxdlx2',
   app_secret: 'Y1W2MeFwwwRxa0'
 )

@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class RongCloud::HTTPClientTest < Minitest::Test
+class RongCloud::ClientTest < Minitest::Test
   def test_send_a_request_with_invalid_app_key
-    client = RongCloud::HTTPClient.new(
+    client = RongCloud::Client.new(
       app_key: 'uwd1c0sxdlx2',
       app_secret: 'Y1W2MeFwwwRxa0'
     )
