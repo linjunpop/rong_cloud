@@ -38,9 +38,6 @@ client.request(
     'objectName' => 'RC:TxtMsg'
   }
 )
-
-#=>
-[false, {"url"=>"/message/private/publish.json", "code"=>1002, "errorMessage"=>"Invalidate App-Key."}]
 ```
 
 ## Development
