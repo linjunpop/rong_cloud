@@ -1,8 +1,6 @@
 # RongCloud
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rong_cloud`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Unofficial RongCloud API wrapper.
 
 ## Installation
 
@@ -22,7 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Sample
+
+```ruby
+client = RongCloud::HTTPClient.new(
+  app_key: 'uwd1c0sxdlx2',
+  app_secret: 'Y1W2MeFwwwRxa0'
+)
+
+client.request(
+  method: 'post',
+  endpoint: '/message/private/publish.json',
+  body: {
+    content: {content: 'foo'}.to_json,
+    'fromUserId' => '123',
+    'toUserId' => '333',
+    'objectName' => 'RC:TxtMsg'
+  }
+)
+
+#=>
+[false, {"url"=>"/message/private/publish.json", "code"=>1002, "errorMessage"=>"Invalidate App-Key."}]
+```
 
 ## Development
 
