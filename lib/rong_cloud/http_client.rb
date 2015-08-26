@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'ostruct'
 require 'securerandom'
 
 module RongCloud
@@ -24,9 +23,9 @@ module RongCloud
 
       request.initialize_http_header({
         'App-Key' => @app_key,
-        'Nonce' => sign[:nonce],
-        'Timestamp' => sign[:timestamp].to_s,
-        'Signature' => sign[:signature]
+        'Nonce' => signature[:nonce],
+        'Timestamp' => signature[:timestamp].to_s,
+        'Signature' => signature[:signature]
       })
 
       http = Net::HTTP.new(uri.host, uri.port)
@@ -34,29 +33,34 @@ module RongCloud
 
       response = http.request(request)
 
-      json = JSON.parse(response.body)
 
       case response
       when Net::HTTPSuccess then
-        [true, json]
+        return JSON.parse(response.body)
       else
-        [false, json]
+        json = JSON.parse(response.body)
+        raise RongCloud::Errors::Standard.new(
+          error_code: json['code'],
+          error_message: json['errorMessage']
+        ), caller
       end
     end
 
     private
 
-    def sign
-      @sign ||= -> {
-        nonce = SecureRandom.hex
-        timestamp = Time.now.to_i
+    def signature
+      @signature ||= generate_signature
+    end
 
-        {
-          nonce: nonce,
-          timestamp: timestamp,
-          signature: Digest::SHA1.hexdigest("#{@app_secret}#{nonce}#{timestamp}")
-        }
-      }.call
+    def generate_signature
+      nonce = SecureRandom.hex
+      timestamp = Time.now.to_i
+
+      {
+        nonce: nonce,
+        timestamp: timestamp,
+        signature: Digest::SHA1.hexdigest("#{@app_secret}#{nonce}#{timestamp}")
+      }
     end
   end
 end
