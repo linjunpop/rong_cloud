@@ -14,8 +14,9 @@ module RongCloud
 
       def message
         <<-EOS
-        Code: #{@code}
-        Message: #{@message}
+
+        Code: #{@error_code}
+        Message: #{@error_message}
         Please read the doc: #{DOC_URI}
         EOS
       end
