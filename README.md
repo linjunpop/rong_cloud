@@ -1,6 +1,6 @@
 # RongCloud
 
-Unofficial RongCloud API wrapper.
+Unofficial [RongCloud](http://www.rongcloud.cn) API wrapper.
 
 ## Installation
 
@@ -48,5 +48,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rong_cloud.
+Bug reports and pull requests are welcome on GitHub at https://github.com/linjunpop/rong_cloud.
 
