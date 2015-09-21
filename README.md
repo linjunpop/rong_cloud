@@ -1,5 +1,9 @@
 # RongCloud
 
+[![Build Status](http://img.shields.io/travis/linjunpop/rong_cloud.svg)](https://travis-ci.org/linjunpop/rong_cloud)
+[![Code Climate](http://img.shields.io/codeclimate/github/linjunpop/rong_cloud.svg)](https://codeclimate.com/github/linjunpop/rong_cloud)
+[![Gem Version](http://img.shields.io/gem/v/rong_cloud.svg)](https://rubygems.org/gems/rong_cloud)
+
 Unofficial [RongCloud](http://www.rongcloud.cn) API wrapper.
 
 ## Installation
